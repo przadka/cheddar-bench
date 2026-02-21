@@ -54,7 +54,7 @@ Notes:
 
 ## Dataset Publication
 
-Canonical dataset release (`challenges/` snapshot) is published at:
+Reference dataset release (`challenges/` snapshot) is published at:
 
 - `s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/`
 - `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/`
@@ -67,9 +67,3 @@ Artifacts and immutable version IDs:
 | `cheddar-bench-challenges-2026-02-21-c5a7337d55be.tar.gz.sha256` | `HBbOT1vqHNX1kHfrsjdru2Hv_TJNL_2x` |
 | `cheddar-bench-challenges-2026-02-21-c5a7337d55be.manifest.json` | `VAYRp6eO272T5zidIKgS2LmEFvWdqPwC` |
 | `cheddar-bench-challenges-2026-02-21-c5a7337d55be.manifest.json.sha256` | `7qCJIyaBCrdei6DtzWThCUCoEqkhFMjp` |
-
-Upload command used:
-
-```bash
-aws s3 cp dist/dataset/ "s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/" --recursive --profile michalprzadka --region eu-central-1
-```

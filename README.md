@@ -47,7 +47,7 @@ uv run cheddar match -c <id> --repeat 3 --aggregate median  # score (median-of-3
 Source repositories are vendored under `repos/` (one directory per target project).
 Use `uv run cheddar list repos` to list the active repo set recognized by the CLI.
 
-Canonical published dataset (full `challenges/` snapshot):
+Reference dataset release (full `challenges/` snapshot):
 
 - S3 prefix: `s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/`
 - Public HTTPS prefix: `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/`
@@ -74,12 +74,6 @@ curl -LO "${BASE_URL}/${DATASET_ID}.manifest.json.sha256"
 
 sha256sum -c "${DATASET_ID}.tar.gz.sha256"
 sha256sum -c "${DATASET_ID}.manifest.json.sha256"
-```
-
-Publishing command used:
-
-```bash
-aws s3 cp dist/dataset/ "s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/" --recursive --profile michalprzadka --region eu-central-1
 ```
 
 ## Scoring
