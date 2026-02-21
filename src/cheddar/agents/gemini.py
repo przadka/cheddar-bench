@@ -51,20 +51,13 @@ def _write_gemini_settings(gemini_home: Path, use_vertex: bool = True) -> None:
 class GeminiAgent(BaseAgent):
     """Agent implementation for Gemini CLI."""
 
+    CAN_CHALLENGE = True
+    CAN_REVIEW = True
+
     @property
     def name(self) -> Literal["gemini"]:
         """Agent identifier."""
         return "gemini"
-
-    @property
-    def can_challenge(self) -> bool:
-        """Gemini can inject bugs."""
-        return True
-
-    @property
-    def can_review(self) -> bool:
-        """Gemini can review code."""
-        return True
 
     def __init__(self) -> None:
         """Set up isolated Gemini config directory."""

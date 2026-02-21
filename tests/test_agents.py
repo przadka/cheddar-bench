@@ -64,6 +64,76 @@ def test_base_agent_run_cli_timeout(tmp_path: Path) -> None:
         agent._run_cli(["sleep", "10"], cwd=tmp_path, timeout=1)
 
 
+def test_get_challengers_and_reviewers_use_class_capabilities(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    """Capability listing should not instantiate agent classes."""
+    import cheddar.agents as agents_module
+    from cheddar.agents import get_challengers, get_reviewers
+    from cheddar.agents.base import BaseAgent
+
+    class ChallengeOnlyAgent(BaseAgent):
+        CAN_CHALLENGE = True
+        CAN_REVIEW = False
+
+        def __init__(self) -> None:
+            raise AssertionError("Agent should not be instantiated")
+
+        @property
+        def name(self) -> str:
+            return "challenge-only"
+
+        def _build_challenge_cmd(self, prompt: str) -> list[str]:  # noqa: ARG002
+            return []
+
+        def _build_review_cmd(self, prompt: str) -> list[str]:  # noqa: ARG002
+            return []
+
+    class ReviewOnlyAgent(BaseAgent):
+        CAN_CHALLENGE = False
+        CAN_REVIEW = True
+
+        def __init__(self) -> None:
+            raise AssertionError("Agent should not be instantiated")
+
+        @property
+        def name(self) -> str:
+            return "review-only"
+
+        def _build_challenge_cmd(self, prompt: str) -> list[str]:  # noqa: ARG002
+            return []
+
+        def _build_review_cmd(self, prompt: str) -> list[str]:  # noqa: ARG002
+            return []
+
+    class DisabledAgent(BaseAgent):
+        CAN_CHALLENGE = False
+        CAN_REVIEW = False
+
+        def __init__(self) -> None:
+            raise AssertionError("Agent should not be instantiated")
+
+        @property
+        def name(self) -> str:
+            return "disabled"
+
+        def _build_challenge_cmd(self, prompt: str) -> list[str]:  # noqa: ARG002
+            return []
+
+        def _build_review_cmd(self, prompt: str) -> list[str]:  # noqa: ARG002
+            return []
+
+    test_agents: dict[str, type[BaseAgent]] = {
+        "challenge": ChallengeOnlyAgent,
+        "review": ReviewOnlyAgent,
+        "disabled": DisabledAgent,
+    }
+    monkeypatch.setattr(agents_module, "AGENTS", test_agents)
+
+    assert get_challengers() == ["challenge"]
+    assert get_reviewers() == ["review"]
+
+
 # Claude agent tests
 
 

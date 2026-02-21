@@ -41,20 +41,13 @@ def _extract_codex_text(raw: str) -> str:
 class CodexAgent(BaseAgent):
     """Agent implementation for OpenAI Codex CLI."""
 
+    CAN_CHALLENGE = True
+    CAN_REVIEW = True
+
     @property
     def name(self) -> Literal["codex"]:
         """Agent identifier."""
         return "codex"
-
-    @property
-    def can_challenge(self) -> bool:
-        """Codex can inject bugs."""
-        return True
-
-    @property
-    def can_review(self) -> bool:
-        """Codex can review code."""
-        return True
 
     def _parse_output(self, raw_stdout: str) -> str:
         """Extract text from Codex JSONL output."""

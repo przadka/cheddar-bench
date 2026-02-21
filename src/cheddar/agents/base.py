@@ -54,6 +54,9 @@ MIN_REVIEW_LENGTH = 500
 class BaseAgent(ABC):
     """Base class for CLI agent implementations."""
 
+    CAN_CHALLENGE = False
+    CAN_REVIEW = True
+
     @property
     @abstractmethod
     def name(self) -> AgentName:
@@ -71,12 +74,12 @@ class BaseAgent(ABC):
     @property
     def can_challenge(self) -> bool:
         """Override in subclass if agent can inject bugs."""
-        return False
+        return type(self).CAN_CHALLENGE
 
     @property
     def can_review(self) -> bool:
         """Override in subclass if agent can review code."""
-        return True
+        return type(self).CAN_REVIEW
 
     def _run_cli(
         self,

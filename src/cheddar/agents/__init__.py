@@ -37,7 +37,7 @@ def get_challengers() -> list[str]:
     Returns:
         List of agent names that support bug injection.
     """
-    return [name for name, cls in AGENTS.items() if cls().can_challenge]
+    return [name for name, cls in AGENTS.items() if getattr(cls, "CAN_CHALLENGE", False)]
 
 
 def get_reviewers() -> list[str]:
@@ -46,7 +46,7 @@ def get_reviewers() -> list[str]:
     Returns:
         List of agent names that support code review.
     """
-    return [name for name, cls in AGENTS.items() if cls().can_review]
+    return [name for name, cls in AGENTS.items() if getattr(cls, "CAN_REVIEW", True)]
 
 
 def register_agent(name: str, agent_class: type[BaseAgent]) -> None:

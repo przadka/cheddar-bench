@@ -37,20 +37,13 @@ def _extract_text_from_stream_json(raw: str) -> str:
 class ClaudeAgent(BaseAgent):
     """Agent implementation for Claude Code CLI."""
 
+    CAN_CHALLENGE = True
+    CAN_REVIEW = True
+
     @property
     def name(self) -> Literal["claude"]:
         """Agent identifier."""
         return "claude"
-
-    @property
-    def can_challenge(self) -> bool:
-        """Claude can inject bugs."""
-        return True
-
-    @property
-    def can_review(self) -> bool:
-        """Claude can review code."""
-        return True
 
     def _parse_output(self, raw_stdout: str) -> str:
         """Parse stream-json JSONL output into plain text."""
