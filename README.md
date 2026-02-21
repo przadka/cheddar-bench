@@ -19,11 +19,19 @@ Scoring policy for reported results:
 - matcher consumes raw `bugs/*.json` finding payloads from reviewer runs
 - matcher `--repeat 5 --aggregate median`
 
-| Reviewer | Unweighted Detection Rate | Weighted Bugs Found |
-|----------|---------------------------|---------------------|
-| Claude | **61.65%** | **1,511 / 2,603 (58.05%)** |
-| Codex | **43.17%** | **985 / 2,603 (37.84%)** |
-| Gemini | **34.64%** | **724 / 2,603 (27.81%)** |
+Weighted bugs found (%):
+
+```text
+🟩 Claude: █████████████████████████████ (58.05%)
+🟧 Codex:  ███████████████████ (37.84%)
+🟦 Gemini: ██████████████ (27.81%)
+```
+
+| Reviewer (Model) | Weighted Bugs Found | Unweighted Detection Rate |
+|------------------|---------------------|---------------------------|
+| Claude (`claude-opus-4-6`) | **1,511 / 2,603 (58.05%)** | **61.65%** |
+| Codex (`gpt-5.3-codex`) | **985 / 2,603 (37.84%)** | **43.17%** |
+| Gemini (`gemini-3-pro-preview`) | **724 / 2,603 (27.81%)** | **34.64%** |
 
 Why two metrics:
 - Unweighted = mean of per-challenge detection rates (each challenge counts equally).

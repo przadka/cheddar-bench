@@ -16,21 +16,29 @@ Scoring policy for this report:
 - matcher repeated 5 times per review
 - median run selected (`repeat=5`, `aggregate=median`)
 
-### Unweighted (mean of 150 challenge scores)
-
-| Reviewer | Detection Rate |
-|----------|----------------|
-| Claude | **61.65%** |
-| Codex | **43.17%** |
-| Gemini | **34.64%** |
-
 ### Weighted (global bug count)
 
-| Reviewer | Bugs Found |
-|----------|------------|
-| Claude | **1,511 / 2,603 (58.05%)** |
-| Codex | **985 / 2,603 (37.84%)** |
-| Gemini | **724 / 2,603 (27.81%)** |
+Weighted bugs found (%):
+
+```text
+🟩 Claude: █████████████████████████████ (58.05%)
+🟧 Codex:  ███████████████████ (37.84%)
+🟦 Gemini: ██████████████ (27.81%)
+```
+
+| Reviewer (Model) | Bugs Found |
+|------------------|------------|
+| Claude (`claude-opus-4-6`) | **1,511 / 2,603 (58.05%)** |
+| Codex (`gpt-5.3-codex`) | **985 / 2,603 (37.84%)** |
+| Gemini (`gemini-3-pro-preview`) | **724 / 2,603 (27.81%)** |
+
+### Unweighted (mean of 150 challenge scores)
+
+| Reviewer (Model) | Detection Rate |
+|------------------|----------------|
+| Claude (`claude-opus-4-6`) | **61.65%** |
+| Codex (`gpt-5.3-codex`) | **43.17%** |
+| Gemini (`gemini-3-pro-preview`) | **34.64%** |
 
 ## Key Findings
 
