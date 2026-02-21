@@ -73,12 +73,18 @@ class BaseAgent(ABC):
 
     @property
     def can_challenge(self) -> bool:
-        """Override in subclass if agent can inject bugs."""
+        """Whether this agent supports bug injection.
+
+        Capability is defined by the class-level ``CAN_CHALLENGE`` flag.
+        """
         return type(self).CAN_CHALLENGE
 
     @property
     def can_review(self) -> bool:
-        """Override in subclass if agent can review code."""
+        """Whether this agent supports review.
+
+        Capability is defined by the class-level ``CAN_REVIEW`` flag.
+        """
         return type(self).CAN_REVIEW
 
     def _run_cli(
