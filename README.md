@@ -2,7 +2,7 @@
 
 Unsupervised benchmark for evaluating CLI coding agents on bug detection.
 
-**TL;DR**: Agents playing treasure hunt! Challenger agents write a ground-truth `bugs.json` manifest, reviewer agents try to find those bugs, and an LLM matcher scores assignments. No human labeling.
+**TL;DR**: Agents playing treasure hunt! Challenger agents hide bugs and write the ground-truth `bugs.json` manifest, reviewer agents try to find those bugs, and an LLM matcher scores assignments. No human labeling.
 
 1. Agent injects bugs into a repo ([prompt](prompts/inject-bugs.md)); bug count scales with repo size and is capped (currently 24 per challenge)
 2. Challenger writes `bugs.json` ground-truth manifest ([system prompt](prompts/extract-manifest.system.md), [user prompt](prompts/extract-manifest.user.md))
