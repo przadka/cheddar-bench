@@ -295,7 +295,7 @@ def test_cli_review_missing_persisted_repo(tmp_path: Path) -> None:
     # Valid config but no repo/ directory
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
 
     state.get_challenges_dir = lambda: challenges_dir
@@ -319,7 +319,7 @@ def test_cli_review_repo_mismatch(tmp_path: Path) -> None:
     # Config says repo is "original-repo"
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "original-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
     # Create persisted repo
     persisted_repo = challenge_dir / "repo"
@@ -361,7 +361,7 @@ def test_cli_review_success(
     # Create config.json
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
 
     # Create bugs.json (ground truth)
@@ -421,7 +421,7 @@ def test_cli_review_creates_reviews_directory(
 
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
     (challenge_dir / "bugs.json").write_text(
         '{"bug_count": 1, "bugs": [{"file": "main.py", "line": 10, '
@@ -482,7 +482,7 @@ def test_cli_review_persists_raw_findings_snapshot(tmp_path: Path, prompts_dir: 
 
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
     (challenge_dir / "bugs.json").write_text(
         '{"bug_count": 1, "bugs": [{"file": "main.py", "line": 10, '
@@ -579,7 +579,7 @@ def test_cli_match_missing_bugs(tmp_path: Path) -> None:
     # Create config but no bugs.json
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
 
     state.get_challenges_dir = lambda: challenges_dir
@@ -602,7 +602,7 @@ def match_test_setup(tmp_path: Path) -> tuple[Path, Path]:
     # Create config
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
 
     # Create bugs.json
@@ -1075,7 +1075,7 @@ def test_cli_match_no_reviews(tmp_path: Path) -> None:
     # Create config and bugs but no reviews
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
     (challenge_dir / "bugs.json").write_text(
         json.dumps(
@@ -1261,7 +1261,7 @@ def test_cli_review_challenges_dir_option(
     # Create config.json
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
 
     # Create bugs.json
@@ -1317,7 +1317,7 @@ def test_cli_match_challenges_dir_option(tmp_path: Path) -> None:
     # Create config
     (challenge_dir / "config.json").write_text(
         '{"challenge_id": "test-run", "repo": "test-repo", "challenger": "claude", '
-        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600}'
+        '"created_at": "2026-01-25T00:00:00", "timeout_seconds": 600, "raw_output": "", "raw_stderr": "", "duration_seconds": 0.0, "status": "complete", "failure_reason": null}'
     )
 
     # Create bugs.json (1 bug)

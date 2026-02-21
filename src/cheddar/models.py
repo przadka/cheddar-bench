@@ -152,27 +152,25 @@ class Score(BaseModel):
     )
 
 
-class ChallengeConfig(BaseModel):
-    """Configuration metadata for a benchmark challenge."""
+class ChallengeReport(BaseModel):
+    """Output from challenge phase."""
 
-    challenge_id: str | None = Field(default=None, description="Legacy: use run_id")
-    run_id: str | None = Field(default=None, description="Unique identifier")
+    challenge_id: str = Field(..., min_length=1, description="Unique challenge identifier")
     repo: str = Field(..., description="Repository name")
     challenger: ChallengerName = Field(..., description="Injector agent")
     created_at: datetime = Field(..., description="Challenge start time")
     timeout_seconds: int = Field(default=DEFAULT_TIMEOUT_SECONDS, description="Agent timeout")
-    duration_seconds: float | None = Field(default=None, description="Agent execution time")
-
-    @property
-    def id(self) -> str:
-        """Get the ID, supporting both old and new field names."""
-        return self.run_id or self.challenge_id or ""
+    raw_output: str = Field(..., description="Full text output from challenger")
+    raw_stderr: str = Field(default="", description="Stderr output for debugging")
+    duration_seconds: float = Field(..., ge=0, description="Time taken")
+    status: ReviewStatus = Field(..., description="Completion status")
+    failure_reason: str | None = Field(default=None, description="Why challenge failed")
 
 
 class Challenge(BaseModel):
     """Complete benchmark challenge state."""
 
-    config: ChallengeConfig = Field(..., description="Challenge configuration")
+    config: ChallengeReport = Field(..., description="Challenge execution report")
     bugs: BugManifest | None = Field(default=None, description="Ground truth")
     reviews: dict[str, ReviewReport] = Field(
         default_factory=lambda: {}, description="Per-reviewer review reports"

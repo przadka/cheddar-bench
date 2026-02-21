@@ -56,14 +56,14 @@ Notes:
 
 Reference dataset release (`challenges/` snapshot) is published at:
 
-- `s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/`
-- `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/`
+- `s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
+- `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
 
 Artifacts and immutable version IDs:
 
 | Artifact | Version ID |
 |----------|------------|
-| `cheddar-bench-challenges-2026-02-21-c5a7337d55be.tar.gz` | `4EcC8UgEXrSuRAbezp8ScPJzcH7_EN9d` |
-| `cheddar-bench-challenges-2026-02-21-c5a7337d55be.tar.gz.sha256` | `HBbOT1vqHNX1kHfrsjdru2Hv_TJNL_2x` |
-| `cheddar-bench-challenges-2026-02-21-c5a7337d55be.manifest.json` | `VAYRp6eO272T5zidIKgS2LmEFvWdqPwC` |
-| `cheddar-bench-challenges-2026-02-21-c5a7337d55be.manifest.json.sha256` | `7qCJIyaBCrdei6DtzWThCUCoEqkhFMjp` |
+| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz` | `tCGltP_anHikU76SYwB.3RJh8RKxh1.V` |
+| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz.sha256` | `Mi9SGPwLSj1igoX4avd1unK08oqwCxg2` |
+| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json` | `PuzCHnjSNbV9ONqZRfeV1nF70R8cmSbO` |
+| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json.sha256` | `9vYKiNM8lzBpsXUnOu2jzaBnol8ET5KP` |

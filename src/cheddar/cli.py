@@ -291,9 +291,9 @@ def challenge(
     from rich.progress import Progress, SpinnerColumn, TextColumn
 
     from cheddar.agents import get_agent
-    from cheddar.errors import AgentError
+    from cheddar.errors import AgentError, AgentTimeoutError
     from cheddar.extractor import reformat_manifest
-    from cheddar.models import ChallengeConfig
+    from cheddar.models import ChallengeReport
     from cheddar.prompts import load_prompt
     from cheddar.sandbox import cleanup_sandbox, create_challenge_sandbox, persist_sandbox
 
@@ -316,13 +316,18 @@ def challenge(
     challenge_dir = effective_challenges_dir / challenge_id
     challenge_dir.mkdir(parents=True, exist_ok=True)
 
-    # Create challenge config
-    config = ChallengeConfig(
+    # Create challenge report (updated after agent execution)
+    config = ChallengeReport(
         challenge_id=challenge_id,
         repo=repo,
         challenger=agent.value,
         created_at=datetime.now(),
         timeout_seconds=timeout,
+        raw_output="",
+        raw_stderr="",
+        duration_seconds=0.0,
+        status="failed",
+        failure_reason="Challenge not completed",
     )
 
     # Save config
@@ -389,6 +394,10 @@ def challenge(
                     timeout_seconds=timeout,
                 )
                 config.duration_seconds = time.time() - challenge_start
+                config.raw_output = raw_output
+                config.raw_stderr = raw_stderr
+                config.status = "complete"
+                config.failure_reason = None
                 config_file.write_text(config.model_dump_json(indent=2))
 
                 # Persist immediately so artifacts survive extraction failures
@@ -449,6 +458,15 @@ def challenge(
         console.print(f"  Output: {bugs_file}")
 
     except Exception as e:
+        if isinstance(e, AgentTimeoutError):
+            config.status = "timeout"
+        elif isinstance(e, AgentError):
+            config.status = "error"
+        else:
+            config.status = "failed"
+        config.failure_reason = str(e)
+        config_file.write_text(config.model_dump_json(indent=2))
+
         err_console.print(f"[red]Error: {e}[/red]")
         if state.verbose and hasattr(e, "raw_output"):
             raw_out = getattr(e, "raw_output", "")
@@ -501,7 +519,7 @@ def review(
     from rich.progress import Progress, SpinnerColumn, TextColumn
 
     from cheddar.agents import get_agent
-    from cheddar.models import ChallengeConfig
+    from cheddar.models import ChallengeReport
     from cheddar.prompts import load_prompt
     from cheddar.sandbox import cleanup_sandbox, create_review_sandbox
 
@@ -522,7 +540,7 @@ def review(
         err_console.print(f"[red]Error: config.json not found for challenge '{challenge_id}'[/red]")
         raise typer.Exit(2)
 
-    challenge_config = ChallengeConfig.model_validate_json(config_file.read_text())
+    challenge_config = ChallengeReport.model_validate_json(config_file.read_text())
     if challenge_config.repo != repo:
         err_console.print(
             f"[red]Error: Repository mismatch - challenge '{challenge_id}' was created for "

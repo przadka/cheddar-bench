@@ -49,22 +49,22 @@ Use `uv run cheddar list repos` to list the active repo set recognized by the CL
 
 Reference dataset release (full `challenges/` snapshot):
 
-- S3 prefix: `s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/`
-- Public HTTPS prefix: `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21-c5a7337d55be/`
+- S3 prefix: `s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
+- Public HTTPS prefix: `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
 
 Published artifacts:
 
 | File | SHA256 | Version ID |
 |------|--------|------------|
-| `cheddar-bench-challenges-2026-02-21-c5a7337d55be.tar.gz` | `d479b18884530cf38cf996768a59afa1b3c334f5668feca088a44cb89a372241` | `4EcC8UgEXrSuRAbezp8ScPJzcH7_EN9d` |
-| `cheddar-bench-challenges-2026-02-21-c5a7337d55be.tar.gz.sha256` | n/a | `HBbOT1vqHNX1kHfrsjdru2Hv_TJNL_2x` |
-| `cheddar-bench-challenges-2026-02-21-c5a7337d55be.manifest.json` | `d5b4167318ce41275794985a4e3a45fb13c5f7c0512bc7ae3cf6a33461031659` | `VAYRp6eO272T5zidIKgS2LmEFvWdqPwC` |
-| `cheddar-bench-challenges-2026-02-21-c5a7337d55be.manifest.json.sha256` | n/a | `7qCJIyaBCrdei6DtzWThCUCoEqkhFMjp` |
+| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz` | `5fb101ccef70642875beab4fa40245fd83e1405bc1e6056eac196d52b73ad237` | `tCGltP_anHikU76SYwB.3RJh8RKxh1.V` |
+| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz.sha256` | n/a | `Mi9SGPwLSj1igoX4avd1unK08oqwCxg2` |
+| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json` | `185700655efd7835a1f5ee0e332313c5f17865192b6860ceb7c56fede7a34f97` | `PuzCHnjSNbV9ONqZRfeV1nF70R8cmSbO` |
+| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json.sha256` | n/a | `9vYKiNM8lzBpsXUnOu2jzaBnol8ET5KP` |
 
 Retrieve and verify:
 
 ```bash
-DATASET_ID=cheddar-bench-challenges-2026-02-21-c5a7337d55be
+DATASET_ID=cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2
 BASE_URL="https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/${DATASET_ID}"
 
 curl -LO "${BASE_URL}/${DATASET_ID}.tar.gz"

@@ -313,15 +313,20 @@ def test_score_invalid_detection_rate() -> None:
 
 
 def test_run_config_valid() -> None:
-    """Test ChallengeConfig model with valid data."""
-    from cheddar.models import ChallengeConfig
+    """Test ChallengeReport model with valid data."""
+    from cheddar.models import ChallengeReport
 
-    config = ChallengeConfig(
+    config = ChallengeReport(
         challenge_id="2026-01-25T14-30-00",
         repo="nanoid",
         challenger="claude",
         created_at=datetime(2026, 1, 25, 14, 30, 0),
         timeout_seconds=600,
+        raw_output="ok",
+        raw_stderr="",
+        duration_seconds=12.5,
+        status="complete",
+        failure_reason=None,
     )
     assert config.challenge_id == "2026-01-25T14-30-00"
     assert config.challenger == "claude"
@@ -329,28 +334,38 @@ def test_run_config_valid() -> None:
 
 
 def test_run_config_invalid_challenger() -> None:
-    """Test ChallengeConfig rejects invalid challenger name."""
-    from cheddar.models import ChallengeConfig
+    """Test ChallengeReport rejects invalid challenger name."""
+    from cheddar.models import ChallengeReport
 
     with pytest.raises(ValidationError) as exc_info:
-        ChallengeConfig(
+        ChallengeReport(
             challenge_id="2026-01-25T14-30-00",
             repo="nanoid",
             challenger="invalid-agent",  # Invalid: not a known agent
             created_at=datetime(2026, 1, 25, 14, 30, 0),
+            raw_output="ok",
+            raw_stderr="",
+            duration_seconds=1.0,
+            status="complete",
+            failure_reason=None,
         )
     assert "challenger" in str(exc_info.value)
 
 
 def test_run_valid() -> None:
     """Test Challenge model with valid data."""
-    from cheddar.models import Challenge, ChallengeConfig
+    from cheddar.models import Challenge, ChallengeReport
 
-    config = ChallengeConfig(
+    config = ChallengeReport(
         challenge_id="2026-01-25T14-30-00",
         repo="nanoid",
         challenger="claude",
         created_at=datetime(2026, 1, 25, 14, 30, 0),
+        raw_output="ok",
+        raw_stderr="",
+        duration_seconds=1.0,
+        status="complete",
+        failure_reason=None,
     )
     run = Challenge(config=config, status="challenged")
     assert run.config.challenge_id == "2026-01-25T14-30-00"
@@ -362,13 +377,18 @@ def test_run_valid() -> None:
 
 def test_run_invalid_status() -> None:
     """Test Challenge model rejects invalid status."""
-    from cheddar.models import Challenge, ChallengeConfig
+    from cheddar.models import Challenge, ChallengeReport
 
-    config = ChallengeConfig(
+    config = ChallengeReport(
         challenge_id="2026-01-25T14-30-00",
         repo="nanoid",
         challenger="claude",
         created_at=datetime(2026, 1, 25, 14, 30, 0),
+        raw_output="ok",
+        raw_stderr="",
+        duration_seconds=1.0,
+        status="complete",
+        failure_reason=None,
     )
     with pytest.raises(ValidationError) as exc_info:
         Challenge(config=config, status="invalid-status")
