@@ -12,7 +12,8 @@ DEFAULT_TIMEOUT_SECONDS = 3600  # 60 minutes
 AgentName = Literal["claude", "codex", "gemini"]
 ChallengerName = Literal["claude", "codex", "gemini"]
 ChallengeStatus = Literal["pending", "challenged", "reviewed", "matched", "reported", "failed"]
-ReviewStatus = Literal["complete", "timeout", "error", "failed"]
+ExecutionStatus = Literal["complete", "timeout", "error", "failed"]
+ReviewStatus = ExecutionStatus
 
 
 def _empty_match_assignments() -> list["GlobalBugMatchAssignment"]:
@@ -48,7 +49,7 @@ class ReviewReport(BaseModel):
     raw_output: str = Field(..., description="Full text of the review report")
     raw_stderr: str = Field(default="", description="Stderr output for debugging")
     duration_seconds: float = Field(..., ge=0, description="Time taken")
-    status: ReviewStatus = Field(..., description="Completion status")
+    status: ExecutionStatus = Field(..., description="Completion status")
     failure_reason: str | None = Field(default=None, description="Why review failed")
     mutated_files: list[str] | None = Field(
         default=None, description="Files modified during review (if any)"
@@ -163,7 +164,7 @@ class ChallengeReport(BaseModel):
     raw_output: str = Field(..., description="Full text output from challenger")
     raw_stderr: str = Field(default="", description="Stderr output for debugging")
     duration_seconds: float = Field(..., ge=0, description="Time taken")
-    status: ReviewStatus = Field(..., description="Completion status")
+    status: ExecutionStatus = Field(..., description="Completion status")
     failure_reason: str | None = Field(default=None, description="Why challenge failed")
 
 

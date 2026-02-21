@@ -388,6 +388,8 @@ def challenge(
 
                 progress.update(task, description=f"Running {agent.value} agent...")
                 challenge_start = time.time()
+                config.raw_output = ""
+                config.raw_stderr = ""
                 raw_output, raw_stderr = agent_instance.challenge(
                     sandbox_path=sandbox_path,
                     prompt=prompt,
@@ -453,8 +455,7 @@ def challenge(
         console.print("[green]Challenge complete![/green]")
         console.print(f"  Challenge ID: {challenge_id}")
         console.print(f"  Bugs injected: {manifest.bug_count}")
-        if config.duration_seconds is not None:
-            console.print(f"  Duration: {config.duration_seconds:.1f}s")
+        console.print(f"  Duration: {config.duration_seconds:.1f}s")
         console.print(f"  Output: {bugs_file}")
 
     except Exception as e:
@@ -462,6 +463,8 @@ def challenge(
             config.status = "timeout"
         elif isinstance(e, AgentError):
             config.status = "error"
+            if e.raw_output:
+                config.raw_output = e.raw_output
         else:
             config.status = "failed"
         config.failure_reason = str(e)
