@@ -1,0 +1,7 @@
+test/
+tsconfig.json
+coverage/
+
+img/
+
+jsr.json

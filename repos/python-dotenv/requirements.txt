@@ -1,0 +1,11 @@
+bumpversion
+click
+ipython
+pytest-cov
+pytest>=3.9
+sh>=2
+tox
+wheel
+ruff
+build
+pre-commit

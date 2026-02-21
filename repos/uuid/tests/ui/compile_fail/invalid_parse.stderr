@@ -1,0 +1,479 @@
+error[E0080]: evaluation panicked: invalid UUID
+ --> tests/ui/compile_fail/invalid_parse.rs:3:17
+  |
+3 | const _: Uuid = uuid!("");
+  |                 ^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+  |
+  = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+ --> tests/ui/compile_fail/invalid_parse.rs:3:17
+  |
+3 | const _: Uuid = uuid!("");
+  |                 ^^^^^^^^^
+  |
+  = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+ --> tests/ui/compile_fail/invalid_parse.rs:4:17
+  |
+4 | const _: Uuid = uuid!("!");
+  |                 ^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+  |
+  = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+ --> tests/ui/compile_fail/invalid_parse.rs:4:17
+  |
+4 | const _: Uuid = uuid!("!");
+  |                 ^^^^^^^^^^
+  |
+  = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+ --> tests/ui/compile_fail/invalid_parse.rs:5:17
+  |
+5 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-B6BF-329BF39FA1E45");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+  |
+  = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+ --> tests/ui/compile_fail/invalid_parse.rs:5:17
+  |
+5 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-B6BF-329BF39FA1E45");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+ --> tests/ui/compile_fail/invalid_parse.rs:6:17
+  |
+6 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-BBF-329BF39FA1E4");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+  |
+  = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+ --> tests/ui/compile_fail/invalid_parse.rs:6:17
+  |
+6 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-BBF-329BF39FA1E4");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+ --> tests/ui/compile_fail/invalid_parse.rs:7:17
+  |
+7 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-BGBF-329BF39FA1E4");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+  |
+  = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+ --> tests/ui/compile_fail/invalid_parse.rs:7:17
+  |
+7 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-BGBF-329BF39FA1E4");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+ --> tests/ui/compile_fail/invalid_parse.rs:8:17
+  |
+8 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-B6BFF329BF39FA1E4");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+  |
+  = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+ --> tests/ui/compile_fail/invalid_parse.rs:8:17
+  |
+8 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-B6BFF329BF39FA1E4");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+ --> tests/ui/compile_fail/invalid_parse.rs:9:17
+  |
+9 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+  |
+  = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+ --> tests/ui/compile_fail/invalid_parse.rs:9:17
+  |
+9 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa");
+  |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:10:17
+   |
+10 | const _: Uuid = uuid!("F9168C5E-CEB2-4faaXB6BFF329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:10:17
+   |
+10 | const _: Uuid = uuid!("F9168C5E-CEB2-4faaXB6BFF329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:11:17
+   |
+11 | const _: Uuid = uuid!("F9168C5E-CEB-24fa-eB6BFF32-BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:11:17
+   |
+11 | const _: Uuid = uuid!("F9168C5E-CEB-24fa-eB6BFF32-BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:12:17
+   |
+12 | const _: Uuid = uuid!("01020304-1112-2122-3132-41424344");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:12:17
+   |
+12 | const _: Uuid = uuid!("01020304-1112-2122-3132-41424344");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:13:17
+   |
+13 | const _: Uuid = uuid!("67e5504410b1426f9247bb680e5fe0c88");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:13:17
+   |
+13 | const _: Uuid = uuid!("67e5504410b1426f9247bb680e5fe0c88");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:14:17
+   |
+14 | const _: Uuid = uuid!("67e5504410b1426f9247bb680e5fe0cg8");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:14:17
+   |
+14 | const _: Uuid = uuid!("67e5504410b1426f9247bb680e5fe0cg8");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:18:17
+   |
+18 | const _: Uuid = uuid!("67e5504410b1426f9247bb680e5fe0c");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:18:17
+   |
+18 | const _: Uuid = uuid!("67e5504410b1426f9247bb680e5fe0c");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:19:17
+   |
+19 | const _: Uuid = uuid!("67e550X410b1426f9247bb680e5fe0cd");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:19:17
+   |
+19 | const _: Uuid = uuid!("67e550X410b1426f9247bb680e5fe0cd");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:20:17
+   |
+20 | const _: Uuid = uuid!("67e550-4105b1426f9247bb680e5fe0c");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:20:17
+   |
+20 | const _: Uuid = uuid!("67e550-4105b1426f9247bb680e5fe0c");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:21:17
+   |
+21 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-B6BF1-02BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:21:17
+   |
+21 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-B6BF1-02BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:24:17
+   |
+24 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-BBF-329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:24:17
+   |
+24 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-BBF-329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:25:17
+   |
+25 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-BGBF-329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:25:17
+   |
+25 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-BGBF-329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:26:17
+   |
+26 | const _: Uuid = uuid!("01020304-1112-2122-3132-41424344");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:26:17
+   |
+26 | const _: Uuid = uuid!("01020304-1112-2122-3132-41424344");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:27:17
+   |
+27 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-B6BFF329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:27:17
+   |
+27 | const _: Uuid = uuid!("F9168C5E-CEB2-4faa-B6BFF329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:28:17
+   |
+28 | const _: Uuid = uuid!("urn:uuid:F9168C5E-CEB2-4faa-BGBF-329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:28:17
+   |
+28 | const _: Uuid = uuid!("urn:uuid:F9168C5E-CEB2-4faa-BGBF-329BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:29:17
+   |
+29 | const _: Uuid = uuid!("urn:uuid:F9168C5E-CEB2-4faa-B2cBF-32BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:29:17
+   |
+29 | const _: Uuid = uuid!("urn:uuid:F9168C5E-CEB2-4faa-B2cBF-32BF39FA1E4");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:30:17
+   |
+30 | const _: Uuid = uuid!("{F9168C5E-CEB2-4faa-B0a75-32BF39FA1E4}");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:30:17
+   |
+30 | const _: Uuid = uuid!("{F9168C5E-CEB2-4faa-B0a75-32BF39FA1E4}");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:32:17
+   |
+32 | const _: Uuid = uuid!("{F9168C5E-CEB2-4faa-B6BF-329Bz39FA1E4}");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:32:17
+   |
+32 | const _: Uuid = uuid!("{F9168C5E-CEB2-4faa-B6BF-329Bz39FA1E4}");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:35:17
+   |
+35 | const _: Uuid = uuid!("67e550-4105b1426f9247bb680e5fe0c");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:35:17
+   |
+35 | const _: Uuid = uuid!("67e550-4105b1426f9247bb680e5fe0c");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:37:17
+   |
+37 | const _: Uuid = uuid!("504410岡林aab1426f9247bb680e5fe0c8");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:37:17
+   |
+37 | const _: Uuid = uuid!("504410岡林aab1426f9247bb680e5fe0c8");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:38:17
+   |
+38 | const _: Uuid = uuid!("504410😎👍aab1426f9247bb680e5fe0c8");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:38:17
+   |
+38 | const _: Uuid = uuid!("504410😎👍aab1426f9247bb680e5fe0c8");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:40:17
+   |
+40 | const _: Uuid = uuid!("{F9168C5E-CEB2-4faa-👍5-32BF39FA1E4}");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:40:17
+   |
+40 | const _: Uuid = uuid!("{F9168C5E-CEB2-4faa-👍5-32BF39FA1E4}");
+   |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:42:17
+   |
+42 | const _: Uuid = uuid!("F916");
+   |                 ^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:42:17
+   |
+42 | const _: Uuid = uuid!("F916");
+   |                 ^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0080]: evaluation panicked: invalid UUID
+  --> tests/ui/compile_fail/invalid_parse.rs:43:17
+   |
+43 | const _: Uuid = uuid!("F916x");
+   |                 ^^^^^^^^^^^^^^ evaluation of `_::OUTPUT` failed here
+   |
+   = note: this error originates in the macro `$crate::panic::panic_2021` which comes from the expansion of the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+note: erroneous constant encountered
+  --> tests/ui/compile_fail/invalid_parse.rs:43:17
+   |
+43 | const _: Uuid = uuid!("F916x");
+   |                 ^^^^^^^^^^^^^^
+   |
+   = note: this note originates in the macro `uuid` (in Nightly builds, run with -Z macro-backtrace for more info)

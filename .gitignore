@@ -1,0 +1,72 @@
+.sandbox-state
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Type checkers
+.mypy_cache/
+.pyright/
+.ruff_cache/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+runs/
+specs/
+logs/
+.env
+.env.*
+.specify/
+.opencode/command/
+.state/
+CLAUDE.md
+# Beads - entire directory (synced via beads-sync branch)
+.beads/
+
+# Scripts (local experiment runners, one-off hacks)
+scripts/
+
+# Challenge data (large, stored separately)
+challenges/
+
+# Temporary archives
+*.tar.gz

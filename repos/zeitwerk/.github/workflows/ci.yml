@@ -1,0 +1,41 @@
+name: "CI"
+on:
+  push:
+  pull_request:
+    branches:
+      - "main"
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - "ubuntu-latest"
+          - "macos-latest"
+          - "windows-latest"
+        ruby-version:
+          - "3.2"
+          - "3.3"
+          - "3.4"
+          - "4.0"
+          - "truffleruby"
+          - "head"
+          - "truffleruby-head"
+        exclude:
+          - os: windows-latest
+            ruby-version: truffleruby
+          - os: windows-latest
+            ruby-version: truffleruby-head
+          - os: windows-latest
+            ruby-version: "4.0"
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: "actions/checkout@v4"
+      - uses: "ruby/setup-ruby@v1"
+        with:
+          ruby-version: ${{ matrix.ruby-version }}
+          bundler-cache: true
+      - name: "Enable global frozen string literals for head"
+        if: matrix.ruby-version == 'head'
+        run: "echo RUBYOPT=--enable-frozen-string-literal >> $GITHUB_ENV"
+      - run: "bundle exec minitest"

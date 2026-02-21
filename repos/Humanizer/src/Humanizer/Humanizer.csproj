@@ -1,0 +1,77 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net10.0;net8.0;net48;netstandard2.0</TargetFrameworks>
+    <Description>A micro-framework that turns your normal strings, type names, enum fields, date fields, etc, into a human friendly format</Description>
+    <Product>Humanizer</Product>
+  </PropertyGroup> 
+  
+  <ItemGroup>
+    <PackageReference Include="Polyfill" PrivateAssets="all" />
+    <PackageReference Include="System.Collections.Immutable" Condition="'$(TargetFramework)' == 'netstandard2.0' or $(TargetFrameworkIdentifier) == '.NETFramework'" />    
+    <PackageReference Include="System.Memory" Condition="$(TargetFrameworkIdentifier) == '.NETFramework'" />
+    <PackageReference Include="System.ComponentModel.Annotations"  Condition="'$(TargetFramework)' == 'netstandard2.0' or $(TargetFrameworkIdentifier) == '.NETFramework'" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="FluentDate\InDate.Months.tt">
+      <LastGenOutput>InDate.Months.cs</LastGenOutput>
+      <Generator>TextTemplatingFileGenerator</Generator>
+    </None>
+    <None Update="FluentDate\OnDate.Days.tt" Generator="TextTemplatingFileGenerator" LastGenOutput="OnDate.Days.cs" />
+    <Compile Update="FluentDate\OnDate.Days.cs" DesignTime="True" AutoGen="True" DependentUpon="OnDate.Days.tt" />
+    
+    <None Update="FluentDate\On.Days.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>On.Days.cs</LastGenOutput>
+    </None>
+    <Compile Update="FluentDate\On.Days.cs" DesignTime="True" AutoGen="True">
+      <DependentUpon>On.Days.tt</DependentUpon>
+    </Compile>
+
+    <None Update="FluentDate\In.Months.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>In.Months.cs</LastGenOutput>
+    </None>
+    <Compile Update="FluentDate\In.Months.cs" DesignTime="True" AutoGen="True">
+      <DependentUpon>In.Months.tt</DependentUpon>
+    </Compile>
+    
+    <None Update="FluentDate\InDate.Months.tt" Generator="TextTemplatingFileGenerator" LastGenOutput="InDate.Months.cs" />
+    <Compile Update="FluentDate\InDate.Months.cs" DesignTime="True" AutoGen="True" DependentUpon="InDate.Months.tt" />
+
+    <None Update="FluentDate\In.SomeTimeFrom.tt" Generator="TextTemplatingFileGenerator" LastGenOutput="In.SomeTimeFrom.cs" />
+    <Compile Update="FluentDate\In.SomeTimeFrom.cs" DesignTime="True" AutoGen="True" DependentUpon="In.SomeTimeFrom.tt" />
+
+    <None Update="FluentDate\InDate.SomeTimeFrom.tt" Generator="TextTemplatingFileGenerator" LastGenOutput="InDate.SomeTimeFrom.cs" />
+    <Compile Update="FluentDate\InDate.SomeTimeFrom.cs" DesignTime="True" AutoGen="True" DependentUpon="InDate.SomeTimeFrom.tt" />
+    
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Humanizer.Tests" />
+    <InternalsVisibleTo Include="Benchmarks" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <!-- Reference the analyzer project to ensure it builds first and its outputs are available for packing -->
+    <ProjectReference Include="..\Humanizer.Analyzers\Humanizer.Analyzers.csproj" ReferenceOutputAssembly="false" />
+  </ItemGroup>
+
+  <Target Name="PackNuSpecs" DependsOnTargets="GetBuildVersion;Build;_InitializeNuspecRepositoryInformationProperties">
+    <ItemGroup>
+      <NuspecFiles Include="$(MSBuildThisFileDirectory)..\..\NuSpecs\*.nuspec" />
+    </ItemGroup>
+    <PropertyGroup>
+      <NoWarn>$(NoWarn);NU5128</NoWarn>
+      <IncludeBuildOutput>false</IncludeBuildOutput>
+      <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
+      <PackageOutputPath Condition=" '$(Configuration)' == '' ">$(MSBuildThisFileDirectory)..\..\artifacts\$(Configuration)\</PackageOutputPath>      
+      <NuspecBasePath>$(MSBuildThisFileDirectory)..\</NuspecBasePath>
+      <NuspecProperties>version=$(NuGetPackageVersion);RepositoryType=git;RepositoryCommit=$(GitCommitId);RepositoryUrl=https://github.com/Humanizr/Humanizer</NuspecProperties>
+    </PropertyGroup>
+        
+    <Message Importance="High" Text="Packing %(NuspecFiles.Identity) → v$(NuGetPackageVersion)" />
+    
+    <PackTask PackItem="$(MSBuildProjectFullPath)" TargetFrameworks="$(TargetFrameworks)" PackageId="$(PackageId)" PackageVersion="$(NuGetPackageVersion)" Title="$(Product)" Authors="$(Authors)" Description="$(Description)" DevelopmentDependency="$(DevelopmentDependency)" Copyright="$(Copyright)" RequireLicenseAcceptance="$(PackageRequireLicenseAcceptance)" RestoreOutputPath="$(RestoreOutputPath)" LicenseUrl="$(PackageLicenseUrl)" ProjectUrl="$(PackageProjectUrl)" IconUrl="$(PackageIconUrl)" Tags="$(PackageTags)" ReleaseNotes="$(PackageReleaseNotes)" AssemblyName="$(AssemblyName)" PackageOutputPath="$(PackageOutputPath)" IsTool="$(IsTool)" IncludeSymbols="$(IncludeSymbols)" IncludeSource="$(IncludeSource)" InstallPackageToOutputPath="$(InstallPackageToOutputPath)" OutputFileNamesWithoutVersion="$(OutputFileNamesWithoutVersion)" RepositoryUrl="$(RepositoryUrl)" RepositoryType="$(RepositoryType)" RepositoryBranch="$(RepositoryBranch)" RepositoryCommit="$(RepositoryCommit)" NoPackageAnalysis="$(NoPackageAnalysis)" NuspecFile="%(NuspecFiles.Identity)" NuspecBasePath="$(NuspecBasePath)" NuspecProperties="$(NuspecProperties)" SymbolPackageFormat="$(SymbolPackageFormat)" MinClientVersion="$(MinClientVersion)" Serviceable="$(Serviceable)" ContinuePackingAfterGeneratingNuspec="true" NoDefaultExcludes="$(NoDefaultExcludes)" NuspecOutputPath="$(NuspecOutputPath)" IncludeBuildOutput="$(IncludeBuildOutput)" NoWarn="$(NoWarn)" TreatWarningsAsErrors="$(TreatWarningsAsErrors)" WarningsAsErrors="$(WarningsAsErrors)" WarningsNotAsErrors="$(WarningsNotAsErrors)" PackageLicenseExpression="$(PackageLicenseExpression)" PackageLicenseFile="$(PackageLicenseFile)" PackageLicenseExpressionVersion="$(PackageLicenseExpressionVersion)" Readme="$(Readme)" Deterministic="$(Deterministic)" PackageIcon="$(PackageIcon)" />
+  </Target>
+</Project>

@@ -1,0 +1,84 @@
+{
+  "bugs": [
+    {
+      "file": "index.js",
+      "line": 20,
+      "type": "off-by-one",
+      "description": "Changed > to >= in pool boundary check, causing unnecessary pool refills when exactly at boundary",
+      "original": "} else if (poolOffset + bytes > pool.length) {",
+      "injected": "} else if (poolOffset + bytes >= pool.length) {"
+    },
+    {
+      "file": "index.js",
+      "line": 70,
+      "type": "logic-error",
+      "description": "Added unnecessary bitwise OR that truncates the size parameter to integer before passing to customRandom",
+      "original": "return customRandom(alphabet, size, random)",
+      "injected": "return customRandom(alphabet, size | 0, random)"
+    },
+    {
+      "file": "index.js",
+      "line": 78,
+      "type": "off-by-one",
+      "description": "Changed < to <= in loop condition, causing nanoid to generate IDs one character longer than requested",
+      "original": "for (let i = poolOffset - size; i < poolOffset; i++) {",
+      "injected": "for (let i = poolOffset - size; i <= poolOffset; i++) {"
+    },
+    {
+      "file": "index.browser.js",
+      "line": 10,
+      "type": "off-by-one",
+      "description": "Allocates one fewer byte than requested, causing array index out of bounds when accessing the last byte",
+      "original": "export let random = bytes => crypto.getRandomValues(new Uint8Array(bytes))",
+      "injected": "export let random = bytes => crypto.getRandomValues(new Uint8Array(bytes - 1))"
+    },
+    {
+      "file": "index.browser.js",
+      "line": 38,
+      "type": "edge-case-failure",
+      "description": "Added early return for size === 0 using strict equality which fails for falsy non-zero values",
+      "original": "return (size = defaultSize) => {\n    let id = ''\n    while (true) {",
+      "injected": "return (size = defaultSize) => {\n    let id = ''\n    if (size === 0) return id\n    while (true) {"
+    },
+    {
+      "file": "index.browser.js",
+      "line": 53,
+      "type": "logic-error",
+      "description": "Changed size | 0 to size || 21, which incorrectly treats size=0 as falsy and returns 21 instead",
+      "original": "customRandom(alphabet, size | 0, random)",
+      "injected": "customRandom(alphabet, size || 21, random)"
+    },
+    {
+      "file": "non-secure/index.js",
+      "line": 17,
+      "type": "off-by-one",
+      "description": "Changed while(i--) to while(--i), causing pre-decrement which skips the last iteration",
+      "original": "while (i--) {",
+      "injected": "while (--i) {"
+    },
+    {
+      "file": "non-secure/index.js",
+      "line": 31,
+      "type": "off-by-one",
+      "description": "Changed multiplier from 64 to 63, making the last character unreachable and reducing entropy",
+      "original": "id += urlAlphabet[(Math.random() * 64) | 0]",
+      "injected": "id += urlAlphabet[(Math.random() * 63) | 0]"
+    },
+    {
+      "file": "bin/nanoid.js",
+      "line": 38,
+      "type": "edge-case-failure",
+      "description": "Changed size <= 0 to size < 0, allowing size=0 to pass validation and generate empty IDs",
+      "original": "if (Number.isNaN(size) || size <= 0) {",
+      "injected": "if (Number.isNaN(size) || size < 0) {"
+    },
+    {
+      "file": "bin/nanoid.js",
+      "line": 51,
+      "type": "logic-error",
+      "description": "Passes size to customNanoid() call when size was already passed to customAlphabet(), causing double-size specification",
+      "original": "print(customNanoid())",
+      "injected": "print(customNanoid(size))"
+    }
+  ]
+}

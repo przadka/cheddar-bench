@@ -1,0 +1,454 @@
+{
+  "repos": [
+    {
+      "name": "escape-string-regexp",
+      "language": "javascript",
+      "loc": 124,
+      "size": "small",
+      "description": "Escape RegExp special characters",
+      "url": "https://github.com/sindresorhus/escape-string-regexp",
+      "commit": "cbc4240"
+    },
+    {
+      "name": "slugify",
+      "language": "javascript",
+      "loc": 626,
+      "size": "medium",
+      "description": "Slugify a string",
+      "url": "https://github.com/sindresorhus/slugify",
+      "commit": "7c318bd"
+    },
+    {
+      "name": "pretty-bytes",
+      "language": "javascript",
+      "loc": 662,
+      "size": "medium",
+      "description": "Convert bytes to a human readable string",
+      "url": "https://github.com/sindresorhus/pretty-bytes",
+      "commit": "b7849f7"
+    },
+    {
+      "name": "nanoid",
+      "language": "javascript",
+      "loc": 5831,
+      "size": "large",
+      "description": "Secure, URL-friendly unique string ID generator",
+      "url": "https://github.com/ai/nanoid",
+      "commit": "9d574d2"
+    },
+    {
+      "name": "chalk",
+      "language": "javascript",
+      "loc": 919,
+      "size": "medium",
+      "description": "Terminal string styling",
+      "url": "https://github.com/chalk/chalk",
+      "commit": "aa06bb5"
+    },
+    {
+      "name": "camelcase",
+      "language": "javascript",
+      "loc": 742,
+      "size": "medium",
+      "description": "Convert string to camelCase",
+      "url": "https://github.com/sindresorhus/camelcase",
+      "commit": "8596a65"
+    },
+    {
+      "name": "validator.js",
+      "language": "javascript",
+      "loc": 6056,
+      "size": "large",
+      "description": "String validation and sanitization",
+      "url": "https://github.com/validatorjs/validator.js",
+      "commit": "c3dc37c"
+    },
+    {
+      "name": "godotenv",
+      "language": "go",
+      "loc": 1153,
+      "size": "medium",
+      "description": "Load environment variables from .env",
+      "url": "https://github.com/joho/godotenv",
+      "commit": "a2be92d"
+    },
+    {
+      "name": "env",
+      "language": "go",
+      "loc": 3700,
+      "size": "large",
+      "description": "Environment configuration for Go",
+      "url": "https://github.com/caarlos0/env",
+      "commit": "f33230e"
+    },
+    {
+      "name": "mux",
+      "language": "go",
+      "loc": 6604,
+      "size": "large",
+      "description": "HTTP router and URL matcher for Go",
+      "url": "https://github.com/gorilla/mux",
+      "commit": "db9d1d0"
+    },
+    {
+      "name": "go-i18n",
+      "language": "go",
+      "loc": 270,
+      "size": "small",
+      "description": "Tiny i18n library for JSON language files",
+      "url": "https://github.com/knadh/go-i18n",
+      "commit": "e546d7e"
+    },
+    {
+      "name": "color",
+      "language": "go",
+      "loc": 1041,
+      "size": "medium",
+      "description": "Terminal color output for Go",
+      "url": "https://github.com/fatih/color",
+      "commit": "26fd578"
+    },
+    {
+      "name": "ulid",
+      "language": "go",
+      "loc": 1489,
+      "size": "medium",
+      "description": "Universally unique lexicographically sortable identifiers",
+      "url": "https://github.com/oklog/ulid",
+      "commit": "96c4edf"
+    },
+    {
+      "name": "go-humanize",
+      "language": "go",
+      "loc": 2016,
+      "size": "medium",
+      "description": "Human-friendly representation of data sizes",
+      "url": "https://github.com/dustin/go-humanize",
+      "commit": "568c2b8"
+    },
+    {
+      "name": "humanize",
+      "language": "python",
+      "loc": 9522,
+      "size": "large",
+      "description": "Humanize data for presentation",
+      "url": "https://github.com/python-humanize/humanize",
+      "commit": "471cd9b"
+    },
+    {
+      "name": "python-dotenv",
+      "language": "python",
+      "loc": 1615,
+      "size": "medium",
+      "description": "Read key-value pairs from .env file",
+      "url": "https://github.com/theskumar/python-dotenv",
+      "commit": "09d7cee"
+    },
+    {
+      "name": "python-slugify",
+      "language": "python",
+      "loc": 1354,
+      "size": "medium",
+      "description": "Unicode slug generator",
+      "url": "https://github.com/un33k/python-slugify",
+      "commit": "7b6d5d9"
+    },
+    {
+      "name": "backoff",
+      "language": "python",
+      "loc": 963,
+      "size": "medium",
+      "description": "Function decoration for backoff and retry",
+      "url": "https://github.com/litl/backoff",
+      "commit": "d82b23c"
+    },
+    {
+      "name": "retry",
+      "language": "python",
+      "loc": 116,
+      "size": "small",
+      "description": "Simple retry decorator",
+      "url": "https://github.com/invl/retry",
+      "commit": "c3f386a"
+    },
+    {
+      "name": "toolz",
+      "language": "python",
+      "loc": 3551,
+      "size": "large",
+      "description": "Functional utilities for Python",
+      "url": "https://github.com/pytoolz/toolz",
+      "commit": "9bc7e82"
+    },
+    {
+      "name": "validators",
+      "language": "python",
+      "loc": 4499,
+      "size": "large",
+      "description": "Python data validation library",
+      "url": "https://github.com/python-validators/validators",
+      "commit": "9bc7e82"
+    },
+    {
+      "name": "more-itertools",
+      "language": "python",
+      "loc": 5138,
+      "size": "large",
+      "description": "Extended itertools for Python",
+      "url": "https://github.com/more-itertools/more-itertools",
+      "commit": "fdbd43c"
+    },
+    {
+      "name": "tiny-invariant",
+      "language": "typescript",
+      "loc": 350,
+      "size": "small",
+      "description": "Tiny invariant function for assertions",
+      "url": "https://github.com/alexreardon/tiny-invariant",
+      "commit": "b5587cf"
+    },
+    {
+      "name": "ms",
+      "language": "typescript",
+      "loc": 4637,
+      "size": "large",
+      "description": "Tiny milisecond conversion utility",
+      "url": "https://github.com/vercel/ms",
+      "commit": "6ec025f"
+    },
+    {
+      "name": "ts-pattern",
+      "language": "typescript",
+      "loc": 21400,
+      "size": "large",
+      "description": "Pattern matching library for TypeScript",
+      "url": "https://github.com/gvergnaud/ts-pattern",
+      "commit": "0dddab8"
+    },
+    {
+      "name": "radash",
+      "language": "typescript",
+      "loc": 6290,
+      "size": "large",
+      "description": "Functional utility library for TypeScript",
+      "url": "https://github.com/sodiray/radash",
+      "commit": "4cab190"
+    },
+    {
+      "name": "thiserror",
+      "language": "rust",
+      "loc": 2895,
+      "size": "medium",
+      "description": "Derive macro for custom error types",
+      "url": "https://github.com/dtolnay/thiserror",
+      "commit": "ac14934"
+    },
+    {
+      "name": "walkdir",
+      "language": "rust",
+      "loc": 1340,
+      "size": "medium",
+      "description": "Recursive directory traversal",
+      "url": "https://github.com/BurntSushi/walkdir",
+      "commit": "6fd031c"
+    },
+    {
+      "name": "smallvec",
+      "language": "rust",
+      "loc": 3663,
+      "size": "large",
+      "description": "Small vector optimization",
+      "url": "https://github.com/servo/rust-smallvec",
+      "commit": "4dff9f2"
+    },
+    {
+      "name": "uuid",
+      "language": "rust",
+      "loc": 5517,
+      "size": "large",
+      "description": "UUID generation and parsing",
+      "url": "https://github.com/uuid-rs/uuid",
+      "commit": "c3346dd"
+    },
+    {
+      "name": "mjson",
+      "language": "java",
+      "loc": 2224,
+      "size": "medium",
+      "description": "Minimal JSON library for Java",
+      "url": "https://github.com/bolerio/mjson",
+      "commit": "6c6c5c1"
+    },
+    {
+      "name": "password4j",
+      "language": "java",
+      "loc": 5283,
+      "size": "large",
+      "description": "Password hashing library for Java",
+      "url": "https://github.com/Password4j/password4j",
+      "commit": "52c06c3"
+    },
+    {
+      "name": "re2j",
+      "language": "java",
+      "loc": 18622,
+      "size": "large",
+      "description": "Linear time regex engine for Java",
+      "url": "https://github.com/google/re2j",
+      "commit": "be9d393"
+    },
+    {
+      "name": "commons-text",
+      "language": "java",
+      "loc": 14356,
+      "size": "large",
+      "description": "Apache Commons text utilities",
+      "url": "https://github.com/apache/commons-text",
+      "commit": "38f0634"
+    },
+    {
+      "name": "picohttpparser",
+      "language": "c",
+      "loc": 1336,
+      "size": "medium",
+      "description": "Tiny HTTP request parser",
+      "url": "https://github.com/h2o/picohttpparser",
+      "commit": "f832609"
+    },
+    {
+      "name": "utf8h",
+      "language": "c",
+      "loc": 1674,
+      "size": "medium",
+      "description": "UTF-8 string functions",
+      "url": "https://github.com/sheredom/utf8.h",
+      "commit": "505f9bb"
+    },
+    {
+      "name": "cJSON",
+      "language": "c",
+      "loc": 5901,
+      "size": "large",
+      "description": "Lightweight JSON parser in C",
+      "url": "https://github.com/DaveGamble/cJSON",
+      "commit": "c859b25"
+    },
+    {
+      "name": "xxHash",
+      "language": "c",
+      "loc": 8893,
+      "size": "large",
+      "description": "Extremely fast hash algorithm",
+      "url": "https://github.com/Cyan4973/xxHash",
+      "commit": "1d7b2a9"
+    },
+    {
+      "name": "miniz",
+      "language": "c",
+      "loc": 8869,
+      "size": "large",
+      "description": "Single-file zlib replacement",
+      "url": "https://github.com/richgel999/miniz",
+      "commit": "174573d"
+    },
+    {
+      "name": "dry-validation",
+      "language": "ruby",
+      "loc": 2943,
+      "size": "medium",
+      "description": "Data validation library for Ruby",
+      "url": "https://github.com/dry-rb/dry-validation",
+      "commit": "016cf14"
+    },
+    {
+      "name": "babosa",
+      "language": "ruby",
+      "loc": 4845,
+      "size": "large",
+      "description": "Library for creating slugs",
+      "url": "https://github.com/norman/babosa",
+      "commit": "13b15e9"
+    },
+    {
+      "name": "zeitwerk",
+      "language": "ruby",
+      "loc": 2744,
+      "size": "medium",
+      "description": "Efficient code loader for Ruby",
+      "url": "https://github.com/fxn/zeitwerk",
+      "commit": "2be306f"
+    },
+    {
+      "name": "hashie",
+      "language": "ruby",
+      "loc": 3960,
+      "size": "large",
+      "description": "Hash extensions for Ruby",
+      "url": "https://github.com/hashie/hashie",
+      "commit": "0ddaddc"
+    },
+    {
+      "name": "hashids.net",
+      "language": "csharp",
+      "loc": 1200,
+      "size": "medium",
+      "description": "Generate YouTube-like IDs from numbers",
+      "url": "https://github.com/ullmark/hashids.net",
+      "commit": "HEAD"
+    },
+    {
+      "name": "Humanizer",
+      "language": "csharp",
+      "loc": 15000,
+      "size": "large",
+      "description": "String manipulation and humanization",
+      "url": "https://github.com/Humanizr/Humanizer",
+      "commit": "HEAD"
+    },
+    {
+      "name": "type-fest",
+      "language": "typescript",
+      "loc": 8000,
+      "size": "large",
+      "description": "Collection of essential TypeScript types",
+      "url": "https://github.com/sindresorhus/type-fest",
+      "commit": "HEAD"
+    },
+    {
+      "name": "zod",
+      "language": "typescript",
+      "loc": 12000,
+      "size": "large",
+      "description": "TypeScript-first schema validation",
+      "url": "https://github.com/colinhacks/zod",
+      "commit": "HEAD"
+    },
+    {
+      "name": "once_cell",
+      "language": "rust",
+      "loc": 2500,
+      "size": "medium",
+      "description": "Single assignment cells and lazy statics",
+      "url": "https://github.com/matklad/once_cell",
+      "commit": "HEAD"
+    },
+    {
+      "name": "money",
+      "language": "ruby",
+      "loc": 3500,
+      "size": "large",
+      "description": "Ruby library for dealing with money",
+      "url": "https://github.com/RubyMoney/money",
+      "commit": "HEAD"
+    },
+    {
+      "name": "log.c",
+      "language": "c",
+      "loc": 400,
+      "size": "small",
+      "description": "Simple logging library for C",
+      "url": "https://github.com/rxi/log.c",
+      "commit": "HEAD"
+    }
+  ]
+}
