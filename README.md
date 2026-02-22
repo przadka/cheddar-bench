@@ -21,17 +21,19 @@ Scoring policy for reported results:
 
 Weighted bugs found (%):
 
+Model mapping: Claude=`claude-opus-4-6`, Codex=`gpt-5.3-codex`, Gemini=`gemini-3-pro-preview`
+
 ```text
 🟩 Claude: █████████████████████████████ (58.05%)
 🟧 Codex:  ███████████████████ (37.84%)
 🟦 Gemini: ██████████████ (27.81%)
 ```
 
-| Reviewer (Model) | Weighted Bugs Found | Unweighted Detection Rate |
-|------------------|---------------------|---------------------------|
-| Claude (`claude-opus-4-6`) | **1,511 / 2,603 (58.05%)** | **61.65%** |
-| Codex (`gpt-5.3-codex`) | **985 / 2,603 (37.84%)** | **43.17%** |
-| Gemini (`gemini-3-pro-preview`) | **724 / 2,603 (27.81%)** | **34.64%** |
+| Reviewer | Weighted Bugs Found | Unweighted Detection Rate |
+|----------|---------------------|---------------------------|
+| Claude | **1,511 / 2,603 (58.05%)** | **61.65%** |
+| Codex | **985 / 2,603 (37.84%)** | **43.17%** |
+| Gemini | **724 / 2,603 (27.81%)** | **34.64%** |
 
 Why two metrics:
 - Unweighted = mean of per-challenge detection rates (each challenge counts equally).
