@@ -21,8 +21,6 @@ Scoring policy for reported results:
 
 Weighted bugs found (%):
 
-Model mapping: Claude=`claude-opus-4-6`, Codex=`gpt-5.3-codex`, Gemini=`gemini-3-pro-preview`
-
 ```text
 🟩 Claude: █████████████████████████████ (58.05%)
 🟧 Codex:  ███████████████████ (37.84%)
@@ -51,41 +49,6 @@ uv run cheddar match -c <id>                 # score (single run)
 uv run cheddar match -c <id> --repeat 3 --aggregate median  # score (median-of-3)
 ```
 
-## Dataset
-
-50 open-source utility libraries across JavaScript, TypeScript, Python, Go, C, Ruby, Rust, Java, C#.
-Source repositories are vendored under `repos/` (one directory per target project).
-Use `uv run cheddar list repos` to list the active repo set recognized by the CLI.
-
-Reference dataset release (full `challenges/` snapshot):
-
-- S3 prefix: `s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
-- Public HTTPS prefix: `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
-
-Published artifacts:
-
-| File | SHA256 | Version ID |
-|------|--------|------------|
-| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz` | `5fb101ccef70642875beab4fa40245fd83e1405bc1e6056eac196d52b73ad237` | `tCGltP_anHikU76SYwB.3RJh8RKxh1.V` |
-| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz.sha256` | n/a | `Mi9SGPwLSj1igoX4avd1unK08oqwCxg2` |
-| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json` | `185700655efd7835a1f5ee0e332313c5f17865192b6860ceb7c56fede7a34f97` | `PuzCHnjSNbV9ONqZRfeV1nF70R8cmSbO` |
-| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json.sha256` | n/a | `9vYKiNM8lzBpsXUnOu2jzaBnol8ET5KP` |
-
-Retrieve and verify:
-
-```bash
-DATASET_ID=cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2
-BASE_URL="https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/${DATASET_ID}"
-
-curl -LO "${BASE_URL}/${DATASET_ID}.tar.gz"
-curl -LO "${BASE_URL}/${DATASET_ID}.tar.gz.sha256"
-curl -LO "${BASE_URL}/${DATASET_ID}.manifest.json"
-curl -LO "${BASE_URL}/${DATASET_ID}.manifest.json.sha256"
-
-sha256sum -c "${DATASET_ID}.tar.gz.sha256"
-sha256sum -c "${DATASET_ID}.manifest.json.sha256"
-```
-
 ## Scoring
 
 An LLM judge (`gpt-5.2`) performs one global assignment per review: all injected bugs vs reviewer `bugs/*.json` payloads. The judge is instructed to match only when file/location/mechanism align and to leave uncertain bugs unmatched. Each match includes a supporting quote and line from reviewer findings.
@@ -107,3 +70,17 @@ We tested official CLI tools with autonomous permission flags enabled on sandbox
 Model versions are configured in [`src/cheddar/agents/config.py`](src/cheddar/agents/config.py); CLI command flags are defined in the per-agent wrappers under `src/cheddar/agents/*.py`.
 
 PRs welcome for additional agents.
+
+## Dataset
+
+Benchmark corpus: 50 open-source utility libraries across JS/TS/Python/Go/C/Ruby/Rust/Java/C#.
+Source repos live under `repos/` (`uv run cheddar list repos`).
+
+Reference snapshot:
+
+- `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
+
+Checksums:
+
+- archive (`.tar.gz`): `5fb101ccef70642875beab4fa40245fd83e1405bc1e6056eac196d52b73ad237`
+- manifest (`.manifest.json`): `185700655efd7835a1f5ee0e332313c5f17865192b6860ceb7c56fede7a34f97`

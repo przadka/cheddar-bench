@@ -20,8 +20,6 @@ Scoring policy for this report:
 
 Weighted bugs found (%):
 
-Model mapping: Claude=`claude-opus-4-6`, Codex=`gpt-5.3-codex`, Gemini=`gemini-3-pro-preview`
-
 ```text
 🟩 Claude: █████████████████████████████ (58.05%)
 🟧 Codex:  ███████████████████ (37.84%)
@@ -41,6 +39,11 @@ Model mapping: Claude=`claude-opus-4-6`, Codex=`gpt-5.3-codex`, Gemini=`gemini-3
 | Claude | **61.65%** |
 | Codex | **43.17%** |
 | Gemini | **34.64%** |
+
+Why two metrics:
+
+- Weighted emphasizes bug-level recall across the full benchmark (`sum(bugs_found) / sum(total_bugs)`).
+- Unweighted emphasizes consistency across repositories (each challenge contributes equally).
 
 ## Key Findings
 
@@ -73,18 +76,10 @@ Notes:
 - Scoring consumes raw reviewer `bugs/*.json` payloads as emitted by agents.
 - Repeat+median is used to reduce matcher stochasticity.
 
-## Dataset Publication
+## Dataset
 
-Reference dataset release (`challenges/` snapshot) is published at:
+The full `challenges/` snapshot is published here:
 
-- `s3://cheddar-bench-data-public/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
 - `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
 
-Artifacts and immutable version IDs:
-
-| Artifact | Version ID |
-|----------|------------|
-| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz` | `tCGltP_anHikU76SYwB.3RJh8RKxh1.V` |
-| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz.sha256` | `Mi9SGPwLSj1igoX4avd1unK08oqwCxg2` |
-| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json` | `PuzCHnjSNbV9ONqZRfeV1nF70R8cmSbO` |
-| `cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json.sha256` | `9vYKiNM8lzBpsXUnOu2jzaBnol8ET5KP` |
+For checksums, object version IDs, and retrieval commands, see the Dataset section in `README.md`.
