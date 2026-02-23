@@ -2,12 +2,11 @@
 
 Unsupervised benchmark for evaluating CLI coding agents on bug detection.
 
-**TL;DR**: Agents playing treasure hunt! Challenger agents hide bugs and write the ground-truth `bugs.json` manifest, reviewer agents try to find those bugs, and an LLM matcher scores assignments. No human labeling.
+**TL;DR**: Agents playing treasure hunt! Challenger agents hide bugs (including a ground-truth `bugs.json` manifest), reviewer agents try to find those bugs, and an LLM matcher scores assignments. No human labeling.
 
-1. Agent injects bugs into a repo ([prompt](prompts/inject-bugs.md)); bug count scales with repo size and is capped (currently 24 per challenge)
-2. Challenger writes `bugs.json` ground-truth manifest ([system prompt](prompts/extract-manifest.system.md), [user prompt](prompts/extract-manifest.user.md))
-3. Different agent reviews the code blind and emits `bugs/*.json` findings ([prompt](prompts/review-bugs.md))
-4. LLM judge scores bug-to-finding assignments ([prompt](prompts/match-all-bugs-report.system.md))
+1. Challenger agent injects bugs into a repo and writes a `bugs.json` ground-truth manifest ([prompt](prompts/inject-bugs.md)); bug count scales with repo size and is capped (currently 24 per challenge). If the manifest JSON is malformed, an LLM reformatting step repairs it into our schema ([system](prompts/extract-manifest.system.md), [user](prompts/extract-manifest.user.md))
+2. Different agent reviews the code blind and emits `bugs/*.json` findings ([prompt](prompts/review-bugs.md))
+3. LLM judge scores bug-to-finding assignments ([prompt](prompts/match-all-bugs-report.system.md))
 
 **Note**: This benchmark tests CLI tools (Claude Code, Codex CLI, Gemini CLI), not the underlying models directly. Each CLI has its own system prompt, tool implementations, and default settings that affect behavior.
 
@@ -78,9 +77,5 @@ Source repos live under `repos/` (`uv run cheddar list repos`).
 
 Reference snapshot:
 
-- `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
-
-Checksums:
-
-- archive (`.tar.gz`): `5fb101ccef70642875beab4fa40245fd83e1405bc1e6056eac196d52b73ad237`
-- manifest (`.manifest.json`): `185700655efd7835a1f5ee0e332313c5f17865192b6860ceb7c56fede7a34f97`
+- [challenges archive (.tar.gz)](https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz) — `sha256:5fb101ccef70642875beab4fa40245fd83e1405bc1e6056eac196d52b73ad237`
+- [manifest (manifest.json)](https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.manifest.json) — `sha256:185700655efd7835a1f5ee0e332313c5f17865192b6860ceb7c56fede7a34f97`

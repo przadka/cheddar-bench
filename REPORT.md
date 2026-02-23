@@ -80,6 +80,6 @@ Notes:
 
 The full `challenges/` snapshot is published here:
 
-- `https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/`
+- [challenges archive (.tar.gz)](https://cheddar-bench-data-public.s3.eu-central-1.amazonaws.com/datasets/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2/cheddar-bench-challenges-2026-02-21T122452Z-cb4b7ba38c3c-r2.tar.gz)
 
 For checksums, object version IDs, and retrieval commands, see the Dataset section in `README.md`.
